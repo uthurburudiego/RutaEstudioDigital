@@ -1,0 +1,317 @@
+
+:root{
+    --blanco:#ffffff;
+    --oscuro: #080705;
+    --gris: #313133;
+    --fondoAzulado:rgba(0, 107, 103, 0.20);
+    --fondoClaro: #f4f0e6;
+    --primario: #006b67; 
+    --secundario: #f78374;
+
+}
+/******************** Globales  ********************/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /* esto nos ayuda con el box model */
+    scroll-snap-type: y mandatory;
+}
+/******************** HEADER ********************/
+
+.header{
+    background: var(--primario);
+    color: var(--fondoClaro);
+    padding: 1rem;
+    padding-left: 0;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+@media (min-width: 768px) {
+    .header{
+        padding-left: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10rem;
+    }
+}
+
+
+.titulo-header{
+    background-color: var(--primario);
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    margin: 0 0 0 0;
+    padding-left: 1rem;
+    text-indent: 0;
+    width: auto;
+}
+
+h1 span{
+    color: var(--secundario);
+}
+
+/******************** Navegacion Principal ********************/
+
+.navegacion-principal{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align:center;
+
+}
+.navegacion-principal.activo {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.menu-nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+.navegacion-principal a {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    color: var(--blanco);
+    text-decoration-line: none;
+    font-size: 2.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin-right: 0;
+    }
+
+
+.navegacion-principal a:hover {
+    color: var(--secundario);
+    transition: all .3s ease-in-out;
+    font-size: 3rem;
+}
+
+@media (min-width: 768px)
+{
+    .navegacion-principal{
+        display: flex;
+        flex-direction: row;
+        padding-top: 2rem;
+        justify-content: space-evenly;
+        box-shadow: none;
+    }
+    .navegacion-principal a:hover {
+        font-size: 2.6rem;
+    }
+
+    .menu-nav{
+        display: none;
+    }
+}
+/********************* Contenido principal *********************/
+
+
+body{
+    font-size: 16px;/* 1rem = 10px */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;/* Esta propiedad permite que la fuente se ajuste automáticamente al tamaño del texto */
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100% );
+}
+
+.contenedor{  
+
+    max-width: 120rem;
+    /*margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto; Se pueden definir los margenes asi*/
+    /*margin: 0 auto 0 auto; Primer valor es el top, segundo es el right, tercer es el bottom cuarto es el left*/
+    margin: 0 auto;/*si los valores de arriba y abajo e izquierda y derecha se repiten se puede resumir asi */
+}
+
+.sombra{
+    box-shadow: -1px 9px 11px -5px rgba(0,0,0,0.53);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border:none;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+.boton:hover{
+    cursor: pointer;
+}
+
+
+
+/*  Titulos  */
+.titulo span{
+    font-size: 2rem;
+}
+
+
+/*  Utilidades*/
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+    
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+
+
+/* Hero */
+.hero{
+    background-image: url(/img/banner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 65rem;
+    position: relative;
+    margin-bottom: 2rem;
+} 
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);/*Sintaxis Anterior*/
+    background-color: rgb(0 0 0 /70%);/*sintaxis nueva, sin definir el alfa channel, pero con poco soporte*/
+    width: 100%;
+    height: 100%;
+
+    /*Cuando se aplica display flex, se alinea orizontalmente con justify-content siempre y cuando el flex-direction sea row*/
+    display: flex;
+    /*Ahora si flex-direction es column, se alinea verticalmente con align-items*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+/*  Servicios  */
+
+@media (min-width: 768px) {
+    .servicios { 
+        display: grid;
+        /* fr define una fraccion del total repeat(3 1fr) lo que hace es dividir el total en 3 fracciones*/
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*  Contacto  */
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);/* min() es como una funcion que recibe dos valores, y toma el mas pequeño de ellos */
+    margin: 0 auto; /*Se utiliza margin: 0 auto cuando queremos centrar un elemento que el padre no posee display flex*/
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+}
+.campo:nth-child(3),
+.campo:nth-child(4){
+    grid-column: 1 / 3;
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo textarea{
+    height: 20rem;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+   
+}
+
+/*  Footer  */
+.footer{
+    text-align: center;
+}
